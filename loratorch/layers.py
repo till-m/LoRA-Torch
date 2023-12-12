@@ -195,7 +195,7 @@ class Conv1d(nn.Conv1d, LoRALayer):
         self.params_with_lora = {'weight': 'w'}
         if r > 0:
             self.w_lora_A = nn.Parameter(
-                self.weight.new_zeros((r*kernel_size, in_channels*kernel_size))
+                self.weight.new_zeros((r*kernel_size, in_channels))
             )
             self.w_lora_B = nn.Parameter(
                 self.weight.new_zeros((out_channels//self.groups*kernel_size, r*kernel_size))
